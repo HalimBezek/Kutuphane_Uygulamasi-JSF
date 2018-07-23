@@ -1,0 +1,35 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+<ui:composition template="template/template.xhtml">
+	<ui:define name="title"><title>Yazar Listesi</title></ui:define>
+	<ui:define name="content">
+		<h:form>
+		<div align="center">
+		<h3>Yazar Listesi</h3>
+		<h:dataTable value="#{yazarBean.yazarList}" var="yazar" border="1">
+			<h:column>
+				<f:facet name="header">Yazar ID</f:facet>
+				#{yazar.yazar_id}
+			</h:column>	
+			<h:column>
+				<f:facet name="header">Yazar Adı</f:facet>
+				#{yazar.yazar_adi}
+			</h:column>	
+			<h:column>
+				<f:facet name="header">Yazar Açıklama</f:facet>
+				#{yazar.aciklama}
+			</h:column>	
+				
+		</h:dataTable>
+		</div>
+		</h:form>
+	</ui:define>
+	
+</ui:composition>
+</html>

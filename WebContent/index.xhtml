@@ -1,0 +1,55 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+<ui:composition template="template/template.xhtml">
+	<ui:define name="title"><title>Kitap Listesi</title></ui:define>
+	<ui:define name="content">
+		<h:form>
+		<div align="center">
+		<h3>Kitap Listesi</h3>
+			<h:dataTable value="#{kitapBean.kitapListesi}" var ="kitap" border="1">
+				<h:column>
+					<f:facet name="header">Kitap ID</f:facet>
+					#{kitap.id}
+				</h:column>
+					<h:column>
+					<f:facet name="header">Kitap Adı </f:facet>
+					#{kitap.kitap_adi}
+				</h:column>
+				<h:column>
+					<f:facet name="header">Kitap Alt Adı </f:facet>
+					#{kitap.kitap_alt_adi}
+				</h:column>
+				<h:column>
+					<f:facet name="header">Kitap Seri Adı </f:facet>
+					#{kitap.kitap_seri_adi}
+				</h:column>
+				<h:column>
+					<f:facet name="header">Kitap ISBN No </f:facet>
+					#{kitap.kitap_isbn_no}
+				</h:column>
+					<h:column>
+					<f:facet name="header">Yazar Adı</f:facet>
+					#{kitap.yazar_adi}
+				</h:column>
+					<h:column>
+					<f:facet name="header">Yayın Evi Adı</f:facet>
+					#{kitap.yayin_evi_adi}
+				</h:column>
+					<h:column>
+					<f:facet name="header">Açıklama</f:facet>
+					#{kitap.kitap_aciklama}
+				</h:column>
+								
+			</h:dataTable>
+		 
+	 </div>
+	 </h:form>
+	</ui:define>
+</ui:composition>
+</html>
