@@ -7,6 +7,14 @@ public class Yazar {
 	private String aciklama;
 	
 	
+	
+	public Yazar(String yazar_adi, String aciklama) {
+		super();
+		this.yazar_adi = yazar_adi;
+		this.aciklama = aciklama;
+	}
+
+
 	public Yazar(int yazar_id, String yazar_adi, String aciklama) {
 		super();
 		this.yazar_id = yazar_id;
@@ -14,7 +22,7 @@ public class Yazar {
 		this.aciklama = aciklama;
 	}
 	
-	
+
 	public int getYazar_id() {
 		return yazar_id;
 	}

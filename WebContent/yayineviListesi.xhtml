@@ -7,10 +7,11 @@
 	xmlns:f="http://xmlns.jcp.org/jsf/core">
 
 <ui:composition template="template/template.xhtml" >
-
+	<ui:define name="title"> <title>Yayın Evi Listesi </title></ui:define>
 	<ui:define name="content">
 		<h:form>
 			<div align="center">
+			<h3>Yayın Evi Listesi</h3>
 				<h:dataTable value="#{yayineviBean.yayineviListesi}" var="yayinevi" border="1" >
 					<h:column >
 						<f:facet name="header">Yazar ID</f:facet>

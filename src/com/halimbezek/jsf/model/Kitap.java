@@ -10,7 +10,24 @@ public class Kitap {
 	 private String yazar_adi;
 	 private String yayin_evi_adi;
 	 private String kitap_aciklama;
+	 private int yazar_id;
+	 private int yayin_evi_id;
 	 
+
+	public Kitap(int id, String kitap_adi, String kitap_alt_adi, String kitap_seri_adi, int kitap_isbn_no,
+			String kitap_aciklama, int yazar_id, int yayin_evi_id) {
+		super();
+		this.id = id;
+		this.kitap_adi = kitap_adi;
+		this.kitap_alt_adi = kitap_alt_adi;
+		this.kitap_seri_adi = kitap_seri_adi;
+		this.kitap_isbn_no = kitap_isbn_no;
+		this.kitap_aciklama = kitap_aciklama;
+		this.yazar_id = yazar_id;
+		this.yayin_evi_id = yayin_evi_id;
+	}
+
+
 
 	public Kitap(int id, String kitap_adi, String kitap_alt_adi, String kitap_seri_adi, int kitap_isbn_no, String yazar_adi,
 			String yayin_evi_adi, String kitap_aciklama) {
@@ -23,6 +40,30 @@ public class Kitap {
 		this.yazar_adi = yazar_adi;
 		this.yayin_evi_adi = yayin_evi_adi;
 		this.kitap_aciklama = kitap_aciklama;
+	}
+
+
+
+	public int getYazar_id() {
+		return yazar_id;
+	}
+
+
+
+	public void setYazar_id(int yazar_id) {
+		this.yazar_id = yazar_id;
+	}
+
+
+
+	public int getYayin_evi_id() {
+		return yayin_evi_id;
+	}
+
+
+
+	public void setYayin_evi_id(int yayin_evi_id) {
+		this.yayin_evi_id = yayin_evi_id;
 	}
 
 

@@ -13,6 +13,14 @@ public class Yayin_evi {
 		this.aciklama = aciklama;
 	}
 
+	
+
+	public Yayin_evi(String adi, String aciklama) {
+		super();
+		this.adi = adi;
+		this.aciklama = aciklama;
+	}
+
 
 
 	public int getId() {

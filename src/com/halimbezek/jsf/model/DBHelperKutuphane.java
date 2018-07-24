@@ -8,6 +8,8 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.mysql.jdbc.PreparedStatement;
+
 public class DBHelperKutuphane {
 
     String URL="jdbc:mysql://localhost:3306/kutuphane_db";
@@ -159,5 +161,89 @@ public class DBHelperKutuphane {
 		
 		
 		return list;
+	}
+
+	public void yazarEkle(Yazar yazar) {
+		Connection cn = getConnection();
+		PreparedStatement ps =null;
+		String sorgu = "INSERT INTO tbl_yazar (yazar_adi, yazar_aciklama) value (?,?)";
+		
+		try {
+			ps = (PreparedStatement) cn.prepareStatement(sorgu);
+			ps.setString(1, yazar.getYazar_adi());
+			ps.setString(2, yazar.getAciklama());
+			ps.execute();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			try {
+				cn.close();
+				ps.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+		}
+		
+	}
+
+	public void yayineviEkle(Yayin_evi yayin_evi) {
+
+		Connection cn = getConnection();
+		PreparedStatement ps=null;
+		String sorgu = "INSERT INTO tbl_yayin_evi (yayin_evi_adi, yayin_evi_aciklama) values(? ,?)";
+		try {
+			ps =(PreparedStatement) cn.prepareStatement(sorgu);
+			ps.setString(1, yayin_evi.getAdi());
+			ps.setString(2, yayin_evi.getAciklama());
+			ps.execute();
+			
+		}catch(Exception e){
+			e.printStackTrace();
+		}finally {
+			try {
+				cn.close();
+				ps.close();
+			}catch(SQLException e) {
+				e.printStackTrace();
+			}
+		
+			
+		}
+		
+	}
+
+	public void kitapEkle(Kitap kitap) {
+		Connection cn = getConnection();
+		PreparedStatement ps =null;
+		String sorgu = "INSERT INTO `tbl_kitap`(`id`, `kitap_adi`, `kitap_alt_adi`, "
+				+ "`kitap_seri_adi`, `kitap_isbn_no`, `yazar_id`, `yayin_evi_id`, `kitap_aciklama`) "
+				+ "VALUES (?,?,?,?,?,?,?,?)";
+		try {
+			ps =(PreparedStatement)cn.prepareStatement(sorgu);
+			ps.setInt(1, kitap.getId());
+			ps.setString(2, kitap.getKitap_adi());
+			ps.setString(3, kitap.getKitap_alt_adi());
+			ps.setString(4, kitap.getKitap_seri_adi());
+			ps.setInt(5, kitap.getKitap_isbn_no());
+			ps.setInt(6, kitap.getYazar_id());
+			ps.setInt(7, kitap.getYayin_evi_id());
+			ps.setString(8, kitap.getKitap_aciklama());
+			
+			ps.execute();
+			
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			try {
+				cn.close();
+				ps.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+			
+		}
 	}
 }
