@@ -15,8 +15,7 @@ public class YazarOperation {
 	public YazarOperation() {
 		
 	}
-	
-	
+		
 	public int getYazar_id() {
 		return yazar_id;
 	}
@@ -47,6 +46,14 @@ public class YazarOperation {
 
 		Yazar yazar =new Yazar (yazar_adi,aciklama);
 		new DBHelperKutuphane().yazarEkle(yazar);
+		
+		FacesContext.getCurrentInstance().getExternalContext().invalidateSession();
+		return "yazarListesi";
+	}
+	
+	public String yazarSil(int yazar_id) {
+
+		new DBHelperKutuphane().yazarSil(yazar_id);
 		
 		FacesContext.getCurrentInstance().getExternalContext().invalidateSession();
 		return "yazarListesi";

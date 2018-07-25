@@ -12,7 +12,7 @@
 		<h:form>
 		<div align="center">
 		<h3>Yazar Listesi</h3>
-		<h:dataTable value="#{yazarBean.yazarList}" var="yazar" border="1">
+		<h:dataTable value="#{yazarBean.yazarList}" var="yazar" class="table table-hover" >
 			<h:column>
 				<f:facet name="header">Yazar ID</f:facet>
 				#{yazar.yazar_id}
@@ -25,8 +25,14 @@
 				<f:facet name="header">Yazar Açıklama</f:facet>
 				#{yazar.aciklama}
 			</h:column>	
-				
+			<h:column >
+		    	<h:commandButton action="#{yazarOpt.yazarSil(yazar.yazar_id)}" value="Sil" class="btn btn-danger btn-sm"
+		    	onclick="if(!confirm('Kullanıcıyı silmek istediğinizden emin misiniz?'))return false" />&nbsp;
+		    	
+				<h:commandButton action="#" value="Düzenle" class="btn btn-primary btn-sm" />	
+			</h:column>	
 		</h:dataTable>
+		
 		</div>
 		</h:form>
 	</ui:define>

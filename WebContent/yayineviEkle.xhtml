@@ -10,14 +10,16 @@
 	<ui:define name="title"><title>Yayın Evi Ekle</title></ui:define>
 	<ui:define name="content">
 	<div align="center">
+	<div style="width:50%">
 	   <h3>Yayın Evi Ekle</h3>
 	   <h:form>
-	   		Yayın Evi Adı : <h:inputText id="yayineviAdi" value="#{yayineviOpt.yayinevi_Adi}"/><br/>
+	   		Yayın Evi Adı : <h:inputText id="yayineviAdi" value="#{yayineviOpt.yayinevi_Adi}" class="form-control"/><br/>
 	   		
-	   		Açıklama : <h:inputTextarea id="aciklama" value="#{yayineviOpt.aciklama}"/><br/>
+	   		Açıklama : <h:inputTextarea id="aciklama" value="#{yayineviOpt.aciklama}" class="form-control"/><br/>
 	   		
-	   		<h:commandButton action="#{yayineviOpt.yayineviEkle}" value="Yayın Evi Ekle"/>
+	   		<h:commandButton action="#{yayineviOpt.yayineviEkle}" value="Ekle" class="btn btn-primary"/>
 	   </h:form>
+	   </div>
 	   </div>
 	</ui:define>
 

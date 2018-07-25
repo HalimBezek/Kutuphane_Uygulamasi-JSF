@@ -10,22 +10,24 @@
 	<ui:define name="title"><title>Kitap Ekle</title></ui:define>
 	<ui:define name="content">
 	<div align="center">
+	<div style="width:50%">
 		<h:form>
 			<h3>Kitap Ekle</h3>
-			Kitap Adı : <h:inputText value="#{kitapOpt.kitap_adi}" id="kitapadi" required="true"/>
-			Kitap Alt Adı : <h:inputText value="#{kitapOpt.kitap_alt_adi}" id="kitapaltadi" required="true"/>
- 			<br/>Kitap Seri Adı: : <h:inputText value="#{kitapOpt.kitap_seri_adi}" id="kitapseriadi" required="true"/>
-			Kitap ISBN No : <h:inputText value="#{kitapOpt.kitap_isbn_no}" id="kitapisbnno" required="true"/>
-			<br/>Yazar Adı : <h:selectOneMenu value="#{kitapOpt.yazarBilgisi}" id ="yazarid" required="true">
+			Kitap Adı : <h:inputText value="#{kitapOpt.kitap_adi}" id="kitapadi" required="true" class="form-control"/>
+			Kitap Alt Adı : <h:inputText value="#{kitapOpt.kitap_alt_adi}" id="kitapaltadi" required="true" class="form-control"/>
+ 			<br/>Kitap Seri Adı: : <h:inputText value="#{kitapOpt.kitap_seri_adi}" id="kitapseriadi" required="true" class="form-control"/>
+			Kitap ISBN No : <h:inputText value="#{kitapOpt.kitap_isbn_no}" id="kitapisbnno" required="true" class="form-control"/>
+			<br/>Yazar Adı : <h:selectOneMenu value="#{kitapOpt.yazarBilgisi}" id ="yazarid" required="true" class="form-control">
 							<f:selectItems value="#{kitapOpt.get_yazar_adi()}" />
 						</h:selectOneMenu>
 						
-			Yayın Evi Adı : <h:selectOneMenu value="#{kitapOpt.yayinBilgisi}" id ="yayineviadi" required="true">
+			Yayın Evi Adı : <h:selectOneMenu value="#{kitapOpt.yayinBilgisi}" id ="yayineviadi" required="true" class="form-control">
 							  <f:selectItems value="#{kitapOpt.get_yayin_adi()}" />
 							 </h:selectOneMenu>
-			<br/>Kitap Açıklama : <h:inputTextarea value="#{kitapOpt.kitap_aciklama}" id="kitapaciklama" required="true"/><br/>
-			<br/><h:commandButton action="#{kitapOpt.kitapEkle}" value="Kitap Ekle"/>
+			<br/>Kitap Açıklama : <h:inputTextarea value="#{kitapOpt.kitap_aciklama}" id="kitapaciklama" required="true" class="form-control"/><br/>
+			<br/><h:commandButton action="#{kitapOpt.kitapEkle}" value=" Ekle" class="btn btn-primary"/>
 		</h:form>
+	</div>
 	</div>
 	 
 	</ui:define>

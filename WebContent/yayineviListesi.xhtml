@@ -12,7 +12,7 @@
 		<h:form>
 			<div align="center">
 			<h3>Yayın Evi Listesi</h3>
-				<h:dataTable value="#{yayineviBean.yayineviListesi}" var="yayinevi" border="1" >
+				<h:dataTable value="#{yayineviBean.yayineviListesi}" var="yayinevi" class="table table-hover">
 					<h:column >
 						<f:facet name="header">Yazar ID</f:facet>
 						#{yayinevi.id}
@@ -25,6 +25,11 @@
 						<f:facet name="header">Yazar ID</f:facet>
 						#{yayinevi.aciklama}
 					</h:column>
+					<h:column >
+				    	<h:commandButton action="#{yayineviOpt.yayineviSil(yayinevi.id)}" value="Sil" class="btn btn-danger btn-sm" 
+				    	onclick="if(!confirm('Kaydı silmek istediğinizden emin misiniz?')) return false"/>&nbsp;
+						<h:commandButton action="#" value="Düzenle" class="btn btn-primary btn-sm" />	
+					</h:column>	
 				
 				</h:dataTable>
 			

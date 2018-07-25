@@ -42,4 +42,11 @@ public class YayineviOperation {
 		return "yayineviListesi";
 	}
 	
+	public String yayineviSil(int yayinevi_id) {
+
+		new DBHelperKutuphane().yayineviSil(yayinevi_id);
+		
+		return "yayineviListesi";
+	}
+	
 }

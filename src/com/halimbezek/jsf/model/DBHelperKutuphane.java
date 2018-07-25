@@ -316,4 +316,86 @@ public class DBHelperKutuphane {
 		return yayinadi;
 	}
 
+	public void yazarSil(int yazar_id) {
+
+		Connection cn = getConnection();
+		PreparedStatement ps = null;
+		String sorgu = "Delete from tbl_yazar where id=?";
+		
+		try {
+			ps =(PreparedStatement)cn.prepareStatement(sorgu);
+			ps.setInt(1, yazar_id);
+			ps.executeUpdate();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			
+			try {
+				cn.close();
+				ps.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		
+	}
+
+	public void kitapSil(int kitap_id) {
+
+		Connection cn = getConnection();
+		PreparedStatement ps=null;
+		String sorgu = "delete from tbl_kitap where id = ?";
+		
+		try {
+			ps = (PreparedStatement)cn.prepareStatement(sorgu);
+			ps.setInt(1, kitap_id);
+			ps.executeUpdate();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			try {
+				cn.close();
+				ps.close();
+				
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+		}
+		
+	}
+
+	public void yayineviSil(int yayinevi_id) {
+		
+		Connection cn = getConnection();
+		PreparedStatement ps = null;
+		
+		String sorgu = "delete from tbl_yayin_evi where id = ?";
+		
+		try {
+			ps =(PreparedStatement) cn.prepareStatement(sorgu);
+			ps.setInt(1, yayinevi_id);
+			ps.executeUpdate();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			try {
+				cn.close();
+				ps.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+		}
+		
+		
+		
+	}
+
 }

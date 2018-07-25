@@ -9,17 +9,22 @@
 <ui:composition template="template/template.xhtml" >
 	<ui:define name="title"><title>Yazar Ekle</title></ui:define>
 	<ui:define name="content">
-	    	<div align="center">
+	
+	    	<div align="center" >
+	    	<div style="width:50%">
 	    	<h3>Yazar Ekle</h3>
 	    	<h:form>
-	    		Yazar Adı: <h:inputText id="yazaradi" value="#{yazarOpt.yazar_adi}"  required="true"/><br/>
+	    		Yazar Adı: <h:inputText id="yazaradi" value="#{yazarOpt.yazar_adi}"  required="true" class="form-control"/><br/>
 	    		
-	    		Açıklama : <h:inputTextarea id="aciklama" value="#{yazarOpt.aciklama}" required="true" /><br/>
+	    		Açıklama : <h:inputTextarea id="aciklama" value="#{yazarOpt.aciklama}" required="true" class="form-control"/><br/>
 	    		
-	    		<h:commandButton action="#{yazarOpt.yazarEkle}" value="Yazar Ekle"/>
+	    		<h:commandButton action="#{yazarOpt.yazarEkle}" value=" Ekle" class="btn btn-primary"/>
 	    	</h:form>
+	    	</div>
 	    	</div>  
 	</ui:define>
 
 </ui:composition>
+
 </html>
+

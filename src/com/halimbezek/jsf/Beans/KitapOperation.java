@@ -43,9 +43,7 @@ public class KitapOperation {
 		 
 		 return yayineviadi;
 	 }
-	
- 
-	 	 
+		 	 
 	public KitapOperation() {
 		
 	}
@@ -129,6 +127,15 @@ public class KitapOperation {
 		
 		FacesContext.getCurrentInstance().getExternalContext().invalidateSession();
 		return "index";
+	}
+	
+	public String kitapSil(int kitap_id) {
+		
+		new DBHelperKutuphane().kitapSil(kitap_id);
+		
+		FacesContext.getCurrentInstance().getExternalContext().invalidateSession();
+		return "yazar";
+		
 	}
 	
 	
