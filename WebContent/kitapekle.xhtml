@@ -16,14 +16,13 @@
 			Kitap Alt Adı : <h:inputText value="#{kitapOpt.kitap_alt_adi}" id="kitapaltadi" required="true"/>
  			<br/>Kitap Seri Adı: : <h:inputText value="#{kitapOpt.kitap_seri_adi}" id="kitapseriadi" required="true"/>
 			Kitap ISBN No : <h:inputText value="#{kitapOpt.kitap_isbn_no}" id="kitapisbnno" required="true"/>
-			<br/>Yazar Adı : <h:selectOneMenu value="#{kitapOpt.yazar_id}" id ="yazarid">
-							<f:selectItem itemValue="1" itemLabel="Halim BEZEK"/>
-							<f:selectItem itemValue="2" itemLabel="Test"/>
+			<br/>Yazar Adı : <h:selectOneMenu value="#{kitapOpt.yazarBilgisi}" id ="yazarid" required="true">
+							<f:selectItems value="#{kitapOpt.get_yazar_adi()}" />
 						</h:selectOneMenu>
-			Yayın Evi Adı : <h:selectOneMenu value="#{kitapOpt.yayin_evi_id}" id ="yayineviid" required="true">
-							<f:selectItem itemValue="1" itemLabel="Okyanus"/>
-							<f:selectItem itemValue="2" itemLabel="Test"/>
-						</h:selectOneMenu>
+						
+			Yayın Evi Adı : <h:selectOneMenu value="#{kitapOpt.yayinBilgisi}" id ="yayineviadi" required="true">
+							  <f:selectItems value="#{kitapOpt.get_yayin_adi()}" />
+							 </h:selectOneMenu>
 			<br/>Kitap Açıklama : <h:inputTextarea value="#{kitapOpt.kitap_aciklama}" id="kitapaciklama" required="true"/><br/>
 			<br/><h:commandButton action="#{kitapOpt.kitapEkle}" value="Kitap Ekle"/>
 		</h:form>

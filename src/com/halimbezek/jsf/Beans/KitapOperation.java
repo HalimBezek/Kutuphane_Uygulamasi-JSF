@@ -1,10 +1,14 @@
 package com.halimbezek.jsf.Beans;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.faces.bean.ManagedBean;
 import javax.faces.context.FacesContext;
 
 import com.halimbezek.jsf.model.DBHelperKutuphane;
 import com.halimbezek.jsf.model.Kitap;
+import com.halimbezek.jsf.model.Yazar;
 
 @ManagedBean(name="kitapOpt")
 public class KitapOperation {
@@ -18,6 +22,29 @@ public class KitapOperation {
 	 private int yayin_evi_id;
 	 private String kitap_aciklama;
 	 
+	 private String yazarBilgisi;
+	 private String yayinBilgisi;
+	 
+	 private List<String> yazaradi = new ArrayList<>() ;
+	 final List<String> yazarid = new ArrayList<>() ;
+	 
+	 private List<String> yayineviadi = new ArrayList<>() ;
+	 
+	 public List<String> get_yazar_adi(){
+		
+		 yazaradi = new DBHelperKutuphane().yazarAndId(yazaradi,yazarid);
+		
+		return yazaradi;
+	}
+	 
+	 public List<String> get_yayin_adi(){
+		 
+		 yayineviadi = new DBHelperKutuphane().yayinAndId(yayineviadi);
+		 
+		 return yayineviadi;
+	 }
+	
+ 
 	 	 
 	public KitapOperation() {
 		
@@ -71,9 +98,31 @@ public class KitapOperation {
 	public void setKitap_aciklama(String kitap_aciklama) {
 		this.kitap_aciklama = kitap_aciklama;
 	}
-	 
+	
+
+	public String getYazarBilgisi() {
+		return yazarBilgisi;
+	}
+
+	public void setYazarBilgisi(String yazarBilgisi) {
+		this.yazarBilgisi = yazarBilgisi;
+	}
+
+	
+	public String getYayinBilgisi() {
+		return yayinBilgisi;
+	}
+
+	public void setYayinBilgisi(String yayinBilgisi) {
+		this.yayinBilgisi = yayinBilgisi;
+	}
+
+	
 	public String kitapEkle() {
-		
+		//int indexad = 
+		yazar_id = yazaradi.indexOf(yazarBilgisi)+1;
+		yayin_evi_id = yayineviadi.indexOf(yayinBilgisi)+1;
+
 		Kitap kitap = new Kitap(id, kitap_adi, kitap_alt_adi, kitap_seri_adi,
 				kitap_isbn_no, kitap_aciklama, yazar_id, yayin_evi_id);
 		new DBHelperKutuphane().kitapEkle(kitap);
@@ -81,5 +130,6 @@ public class KitapOperation {
 		FacesContext.getCurrentInstance().getExternalContext().invalidateSession();
 		return "index";
 	}
-	 
+	
+	
 }

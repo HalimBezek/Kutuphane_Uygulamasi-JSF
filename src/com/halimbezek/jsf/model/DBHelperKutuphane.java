@@ -246,4 +246,74 @@ public class DBHelperKutuphane {
 			
 		}
 	}
+
+	public List<String> yazarAndId(List<String> yazaradi, List<String> yazarid) {
+		Statement st =null;
+		ResultSet rs =null;
+				
+		cn =	getConnection();
+		
+		String sorgu = "SELECT * FROM tbl_yazar";
+		
+		try {
+			st =cn.createStatement();
+			rs =st.executeQuery(sorgu);
+			while(rs.next()) {
+				int id = rs.getInt("id");
+				String yazar_adi = rs.getString("yazar_adi");
+
+				yazarid.add(String.valueOf(id));
+				yazaradi.add(yazar_adi);
+				
+			}
+		}catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			try {
+				cn.close();
+				st.close();
+				rs.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+		}
+		return yazaradi;
+	}
+
+	public List<String> yayinAndId(List<String> yayinadi) {
+		Statement st =null;
+		ResultSet rs =null;
+				
+		cn =	getConnection();
+		
+		String sorgu = "SELECT * FROM tbl_yayin_evi";
+		
+		try {
+			st =cn.createStatement();
+			rs =st.executeQuery(sorgu);
+			while(rs.next()) {
+				//int id = rs.getInt("id");
+				String yayinevi_adi = rs.getString("yayin_evi_adi");
+
+				yayinadi.add(yayinevi_adi);
+				
+			}
+		}catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			try {
+				cn.close();
+				st.close();
+				rs.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+		}
+		return yayinadi;
+	}
+
 }

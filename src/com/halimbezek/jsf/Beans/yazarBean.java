@@ -13,10 +13,8 @@ import com.halimbezek.jsf.model.Yazar;
 public class yazarBean {
 
 	List<Yazar> yazarList = new ArrayList<>();
-
 	
 	public yazarBean() {
-		System.out.println("user beanda");
 		yazarList = new DBHelperKutuphane().yazarListesi();
 	}
 
@@ -27,6 +25,6 @@ public class yazarBean {
 	public void setYazarList(List<Yazar> yazarList) {
 		this.yazarList = yazarList;
 	}
-	
+
 	
 }
